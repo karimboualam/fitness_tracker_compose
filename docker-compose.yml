@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  backend:
+    build:
+      context: ./backend_fitness_tracker
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=fitness_tracker.settings
+    volumes:
+      - ./backend_fitness_tracker:/app
+
+  frontend:
+    build:
+      context: ./frontend_fitness_tracker
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend_fitness_tracker:/app
